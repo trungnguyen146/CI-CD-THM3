@@ -181,7 +181,6 @@
 
 * * * * *
 
-Như vậy, bạn sẽ có thể xác định rõ các công cụ và quy trình cần sử dụng, đồng thời phân chia công việc phù hợp cho từng thành viên trong nhóm. Nếu cần hỗ trợ gì thêm, cứ báo cho mình nhé!
 
 ---
 
@@ -196,7 +195,7 @@ Như vậy, bạn sẽ có thể xác định rõ các công cụ và quy trình
 - [ ] B: Tạo Dockerfile và docker-compose cho backend.
 - [ ] C: Tạo Dockerfile/frontend config và gắn với NGINX.
 
-Dưới đây là cách thiết lập môi trường làm việc, phát triển và chạy thử cho **backend (PHP)** và **frontend (HTML)** bằng **Docker**, với mục tiêu đơn giản hóa quá trình để bạn có thể dễ dàng hiểu được cách thức vận hành của **CI/CD** mà không cần phải quá chú trọng vào phần mã nguồn.
+Dưới đây là cách thiết lập môi trường làm việc, phát triển và chạy thử cho **backend (PHP)** và **frontend (HTML)** bằng **Docker**, với mục tiêu đơn giản hóa quá trình để có thể dễ dàng hiểu được cách thức vận hành của **CI/CD** mà không cần phải quá chú trọng vào phần mã nguồn.
 
 ---
 
@@ -212,7 +211,7 @@ Dưới đây là cách thiết lập môi trường làm việc, phát triển 
 
 ### **Bước 1: Tạo Dockerfile cho PHP**
 
-Để chạy ứng dụng PHP trong Docker, bạn cần tạo một **Dockerfile**. Dockerfile sẽ định nghĩa cách thức để Docker xây dựng môi trường và chạy ứng dụng.
+Để chạy ứng dụng PHP trong Docker, cần tạo một **Dockerfile**. Dockerfile sẽ định nghĩa cách thức để Docker xây dựng môi trường và chạy ứng dụng.
 
 **Dockerfile cho PHP**:
 
@@ -236,7 +235,7 @@ EXPOSE 80
 
 ### **Bước 2: Tạo docker-compose.yml cho Backend**
 
-**docker-compose.yml** giúp bạn dễ dàng quản lý các container backend và database nếu cần.
+**docker-compose.yml** giúp  dễ dàng quản lý các container backend và database nếu cần.
 
 **docker-compose.yml cho PHP**:
 
@@ -263,13 +262,13 @@ services:
 
 ### **Bước 4: Build và Run Backend**
 
-Sau khi đã tạo Dockerfile và docker-compose.yml, bạn có thể xây dựng và chạy container PHP bằng cách sử dụng lệnh:
+Sau khi đã tạo Dockerfile và docker-compose.yml, có thể xây dựng và chạy container PHP bằng cách sử dụng lệnh:
 
 ```bash
 docker-compose up --build
 ```
 
-Điều này sẽ tải image PHP, xây dựng và chạy container. Bạn có thể truy cập ứng dụng của mình tại **http://localhost:8080**.
+Điều này sẽ tải image PHP, xây dựng và chạy container. có thể truy cập ứng dụng tại **http://localhost:8080**.
 
 ---
 
@@ -277,7 +276,7 @@ docker-compose up --build
 
 ### **Bước 1: Tạo Dockerfile cho Frontend (HTML)**
 
-Đối với frontend chỉ chứa tệp HTML, bạn có thể sử dụng **NGINX** để phục vụ các tệp tĩnh như HTML, CSS, JavaScript.
+Đối với frontend chỉ chứa tệp HTML, có thể sử dụng **NGINX** để phục vụ các tệp tĩnh như HTML, CSS, JavaScript.
 
 **Dockerfile cho Frontend**:
 
@@ -298,7 +297,7 @@ EXPOSE 80
 
 ### **Bước 2: Tạo docker-compose.yml cho Frontend**
 
-Tương tự như backend, bạn sẽ cần một file **docker-compose.yml** để cấu hình cho frontend.
+Tương tự như backend, sẽ cần một file **docker-compose.yml** để cấu hình cho frontend.
 
 **docker-compose.yml cho Frontend**:
 
@@ -325,38 +324,37 @@ services:
 
 ### **Bước 4: Build và Run Frontend**
 
-Sau khi đã có Dockerfile và docker-compose.yml cho frontend, bạn có thể xây dựng và chạy container bằng lệnh:
+Sau khi đã có Dockerfile và docker-compose.yml cho frontend, ta có thể xây dựng và chạy container bằng lệnh:
 
 ```bash
 docker-compose up --build
 ```
 
-Điều này sẽ chạy ứng dụng frontend và bạn có thể truy cập tại **http://localhost:8081**.
+Điều này sẽ chạy ứng dụng frontend và truy cập tại **http://localhost:8081**.
 
 ---
 
 ## **4. Kiểm Tra và Chạy Thử**
 
-Sau khi hoàn thành các bước trên, bạn sẽ có:
+Sau khi hoàn thành các bước trên, ta sẽ có:
 
 - **Backend (PHP)** chạy tại **http://localhost:8080**.
 - **Frontend (HTML)** chạy tại **http://localhost:8081**.
 
-Bạn có thể mở trình duyệt và kiểm tra để chắc chắn mọi thứ hoạt động đúng.
 
 ---
 
 ## **5. Lợi Ích Khi Dùng Docker cho PHP và HTML**
 
 - **Đồng nhất môi trường phát triển**: Docker đảm bảo rằng mọi người trong nhóm sẽ có môi trường phát triển giống nhau.
-- **Tính di động**: Bạn có thể dễ dàng chạy ứng dụng ở mọi nơi mà không cần lo về cấu hình hệ thống.
+- **Tính di động**: Có thể dễ dàng chạy ứng dụng ở mọi nơi mà không cần lo về cấu hình hệ thống.
 - **Quản lý dễ dàng**: Sử dụng Docker Compose để quản lý các container, giúp phát triển và triển khai ứng dụng nhanh chóng.
 
 ---
 
 ## **6. Các Công Cụ và Lệnh Docker Cơ Bản**
 
-- **Docker Compose**: Giúp bạn quản lý các container liên quan dễ dàng hơn.
+- **Docker Compose**: Giúp  quản lý các container liên quan dễ dàng hơn.
   - `docker-compose up --build`: Xây dựng và chạy các container.
   - `docker-compose down`: Dừng và xóa các container.
   
@@ -368,9 +366,8 @@ Bạn có thể mở trình duyệt và kiểm tra để chắc chắn mọi th�
 
 ---
 
-### **Tóm lại**, việc sử dụng Docker để phát triển và kiểm thử ứng dụng PHP và HTML giúp bạn dễ dàng tạo ra môi trường phát triển đồng nhất và tiết kiệm thời gian triển khai. Với những bước này, bạn chỉ cần tập trung vào việc hiểu quy trình CI/CD và cách các container hoạt động trong môi trường Docker mà không cần phải lo lắng về mã nguồn.
+### **Tóm lại**, việc sử dụng Docker để phát triển và kiểm thử ứng dụng PHP và HTML giúp dễ dàng tạo ra môi trường phát triển đồng nhất và tiết kiệm thời gian triển khai. Với những bước này, chỉ cần tập trung vào việc hiểu quy trình CI/CD và cách các container hoạt động trong môi trường Docker mà không cần phải lo lắng về mã nguồn.
 
-Nếu bạn cần hỗ trợ thêm hoặc có câu hỏi về các bước cụ thể, cứ thoải mái hỏi nhé!
 
 ---
 
@@ -521,7 +518,7 @@ Dưới đây là một quy trình chi tiết cho việc **tự động build v�
 
 ### **1.5. A, C: Kiểm tra lại kết quả: push code → deploy chạy tự động**
 
-- **Mục tiêu**: Kiểm tra quy trình CI/CD xem có hoạt động đúng hay không khi bạn push mã nguồn mới lên GitHub.
+- **Mục tiêu**: Kiểm tra quy trình CI/CD xem có hoạt động đúng hay không khi push mã nguồn mới lên GitHub.
 
 - **Công việc**:
   - Đẩy mã nguồn mới lên GitHub (commit và push lên nhánh `main`).
@@ -552,7 +549,6 @@ Dưới đây là một quy trình chi tiết cho việc **tự động build v�
 
 ---
 
-Hy vọng quy trình trên giúp bạn có cái nhìn rõ ràng về cách thiết lập CI/CD với Docker! Nếu có câu hỏi hay cần hỗ trợ thêm, cứ hỏi mình nhé!
 
 ---
 
@@ -567,7 +563,6 @@ Hy vọng quy trình trên giúp bạn có cái nhìn rõ ràng về cách thi�
 - [ ] A: Xác nhận backend/frontend tự động cập nhật.
 - [ ] C: Ghi lại từng bước thực hiện vào tài liệu hướng dẫn sử dụng CI/CD.
 
-Dưới đây là phiên bản chi tiết hơn cho **Tuần 5: Kiểm tra CI/CD hoạt động**, theo đúng cấu trúc bạn yêu cầu và đảm bảo dễ hiểu, dễ thực hiện cho cả nhóm, kể cả người không chuyên về code:
 
 * * * * *
 
@@ -755,7 +750,7 @@ $ git push origin main
 
     ```
 
--   Kiểm tra xem nội dung mới (ví dụ dòng bạn vừa chỉnh trong HTML) đã hiển thị chưa.
+-   Kiểm tra xem nội dung mới (ví dụ dòng vừa chỉnh trong HTML) đã hiển thị chưa.
 
 📌 Nếu chưa hiển thị, thử clear cache trình duyệt hoặc kiểm tra lại Docker container trên VPS:
 
@@ -922,8 +917,6 @@ sudo certbot --nginx -d myapp.example.com
 - [ ] A: Thiết lập gửi cảnh báo đơn giản qua Telegram Bot hoặc email nếu lỗi.
 - [ ] C: Ghi chú quy trình restart khi ứng dụng lỗi.
 
-Dưới đây là bản **giải thích chi tiết** và rõ ràng hơn cho mục **Giám sát ứng dụng và cảnh báo lỗi**, tách riêng khỏi file CI/CD chính như bạn yêu cầu:
-
 ---
 
 ## 📡 Giám sát ứng dụng và cảnh báo khi lỗi
@@ -1001,7 +994,7 @@ Dưới đây là bản **giải thích chi tiết** và rõ ràng hơn cho mụ
   chmod +x alert.sh
   ```
 
-📌 **Hoặc** dùng lệnh `mail` nếu bạn muốn cảnh báo qua email (cần cấu hình sẵn `mailutils` hoặc `ssmtp`).
+📌 **Hoặc** dùng lệnh `mail` nếu muốn cảnh báo qua email (cần cấu hình sẵn `mailutils` hoặc `ssmtp`).
 
 ---
 
@@ -1036,7 +1029,6 @@ docker-compose up -d --build
 
 ---
 
-Nếu bạn muốn mình tạo file `check_health.sh`, `alert.sh` hoặc cả tài liệu `restart-guide.md`, cứ nói nhé, mình tạo luôn cho tiện ✌️
 ---
 
 ## 📅 Tuần 8: Tổng kết và báo cáo
@@ -1050,7 +1042,6 @@ Nếu bạn muốn mình tạo file `check_health.sh`, `alert.sh` hoặc cả t�
 - [ ] A: Vẽ sơ đồ hệ thống CI/CD: Git → CI → Build → Deploy → VPS.
 - [ ] C: Chuẩn bị slide báo cáo, demo trực tiếp push → deploy.
 
-Dưới đây là phần giải thích chi tiết cho mục **Hoàn thiện hệ thống, tài liệu và demo báo cáo nhóm**, tách riêng để bạn dễ hiểu và dễ triển khai nè:
 
 ---
 
@@ -1144,8 +1135,5 @@ Dưới đây là phần giải thích chi tiết cho mục **Hoàn thiện hệ
 
 ---
 
-Nếu bạn muốn mình tạo sẵn file `backend-cicd.md`, `frontend-cicd.md` hay slide template thì mình làm luôn cho, chỉ cần nói một tiếng 😎
-
----
 
 
