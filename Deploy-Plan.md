@@ -18,8 +18,8 @@
 
 | Công việc                                                | Trạng thái | Phân công |
 |----------------------------------------------------------|------------|-----------|
-| Chọn công cụ CI/CD (GitHub Actions / GitLab CI)          | [ ]        | A         |
-| Lựa chọn nền tảng deploy (VPS, AWS, Heroku...)           | [ ]        | A         |
+| Chọn công cụ CI/CD (GitHub Actions / GitLab CI)          | [X]        | A         |Github
+| Lựa chọn nền tảng deploy (VPS, AWS, Heroku...)           | [ ]        | A         |VPS
 | Chuẩn bị project backend mẫu (API đơn giản)              | [ ]        | B         |
 | Chuẩn bị frontend mẫu (React/Vue hoặc HTML tĩnh)         | [ ]        | C         |
 
