@@ -1,0 +1,31 @@
+// frontend/Dockerfile
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+
+// .github/workflows/backend.yml
+name: Backend CI/CD
+on:
+  push:
+    paths:
+      - 'backend/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Build Docker image
+        run: docker build -t yourdockeruser/backend:latest ./backend
+      - name: Push Docker image
+        run: docker push yourdockeruser/backend:latest
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          script: |
+            docker pull yourdockeruser/backend:latest
+            docker stop backend || true && docker rm backend || true
+            docker run -d -p 8000:8000 --name backend yourdockeruser/backend:latest
