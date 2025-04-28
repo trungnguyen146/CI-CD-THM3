@@ -34,5 +34,5 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/backend-app
             docker stop backend-app || true
             docker rm backend-app || true
-            docker run -d
+            docker run -d -p 8000:8000 --name backend-app ${{ secrets.DOCKER_USERNAME }}/backend-app
 
